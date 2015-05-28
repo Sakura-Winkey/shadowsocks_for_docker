@@ -9,4 +9,4 @@ RUN apt-get update && \
     apt-get install -y python-pip python-m2crypto
 RUN pip install shadowsocks
 
-ENTRYPOINT ["/usr/bin/ssserver"]
+ENTRYPOINT ["/usr/local/bin/ssserver"]
