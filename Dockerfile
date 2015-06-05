@@ -5,8 +5,10 @@
 FROM ubuntu:14.04
 MAINTAINER Dubu Qingfeng <1135326346@qq.com>
 
-RUN apt-get update && \
-    apt-get install -y python-pip python-m2crypto
+ENV REFRESHED_AT 2015-06-05
+
+RUN apt-get -qq update && \
+    apt-get install -q -y python-pip python-m2crypto
 RUN pip install shadowsocks
 
 ENTRYPOINT ["/usr/local/bin/ssserver"]
