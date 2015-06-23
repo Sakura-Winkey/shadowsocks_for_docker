@@ -1,6 +1,6 @@
 # About shadowsocks of Docker
 # 
-# Version:1.0.0
+# Version:1.0.1
 
 FROM ubuntu:14.04
 MAINTAINER Dubu Qingfeng <1135326346@qq.com>
@@ -17,9 +17,11 @@ ENV SS_PASSWORD password
 ENV SS_METHOD aes-256-cfb
 ENV SS_TIMEOUT 300
 
+ADD shadowsocks.json /etc/
 ADD start.sh /start.sh
 RUN chmod 755 /start.sh
 
 EXPOSE $SS_SERVER_PORT
 
-CMD ["sh", "-c", "/start.sh"]
+#CMD ["sh", "-c", "/start.sh"]
+ENTRYPOINT ["/usr/local/bin/ssserver"]
