@@ -24,7 +24,7 @@ RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz && \
     tar zxf LATEST.tar.gz && \
     cd libsodium* && \
     ./configure && make -j2 && make install && \
-    ldconfig && \
+    ldconfig
 
 ADD shadowsocks.json /etc/
 ADD start.sh /usr/local/bin/start.sh
